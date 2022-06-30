@@ -23,8 +23,11 @@ app.get('/', (req, res) =>
 
 app.get('/err', (req, res) =>
 {
-    rollbar.info('students enrolled in class');
-    res.status(200).send(students)
+    try {
+        badFunction();
+    } catch (error) {
+        rollbar.error('ya messed up')
+    }
 })
 
 app.listen(SERVER_PORT, () =>
