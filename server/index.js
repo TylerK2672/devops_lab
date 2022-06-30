@@ -26,7 +26,7 @@ app.get('/err', (req, res) =>
     try {
         badFunction();
     } catch (error) {
-        rollbar.error(error)
+        rollbar.warning('bad code');
     }
 })
 
